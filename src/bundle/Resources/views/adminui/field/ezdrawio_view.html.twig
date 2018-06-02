@@ -1,0 +1,44 @@
+{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+
+{% trans_default_domain 'ezdrawio' %}
+
+{% block ezdrawio_field %}
+{% spaceless %}
+    {% if not ez_is_field_empty( content, field ) %}
+        {% set imageAlias = ez_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
+        {% set src = imageAlias ? asset( imageAlias.uri ) : "//:0" %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ez-field-preview ez-field-preview--ezdrawio')|trim}) %}
+        <div {{ block( 'field_attributes' ) }}>
+            <div class="ez-image__wrapper">
+                <img src="{{ src }}">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ 'content.field_type.ezdrawio.properties'|trans|desc('Diagram properties') }}:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ 'content.field_type.ezdrawio.alternative_text'|trans|desc('Alternative text') }}:</td>
+                        <td>{{ field.value.alternativeText|default('-') }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'content.field_type.ezdrawio.dimensions'|trans|desc('Dimensions') }}:</td>
+                        <td>
+                            {{ 'content.field_type.ezdrawio.dimensions.val'|trans({
+                                '%width%': field.value.width,
+                                '%height%': field.value.height
+                            })|desc('%width%x%height%px') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'content.field_type.ezdrawio.ratio'|trans|desc('Ratio') }}:</td>
+                        <td>{{ (field.value.width / field.value.height|default(1)) | round(2) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock %}

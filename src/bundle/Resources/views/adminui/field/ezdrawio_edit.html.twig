@@ -1,0 +1,70 @@
+{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+
+{% trans_default_domain 'ezdrawio' %}
+
+{%- block ezplatform_fieldtype_ezdrawio_row -%}
+    {% set preview_block_name = 'ezdrawio_preview' %}
+    {% set wrapper_attr = wrapper_attr|default({})|merge({'class': (wrapper_attr.class|default('') ~ ' ez-field-edit--with-preview')|trim}) %}
+    {% set preview_attr = preview_attr|default({})|merge({'class': (preview_attr.class|default('') ~ ' ez-field-edit__preview')|trim}) %}
+    {% set widget_wrapper_attr = widget_wrapper_attr|default({})|merge({'class': (widget_wrapper_attr.class|default('') ~ ' ez-field-edit__data')|trim}) %}
+    {% set file_is_empty = form.data.vars.value is empty %}
+    {% if file_is_empty %}
+        {% set preview_attr = preview_attr|default({})|merge({'hidden': 'hidden'}) %}
+    {% else %}
+        {% set widget_wrapper_attr = widget_wrapper_attr|merge({'hidden': 'hidden'}) %}
+    {% endif %}
+
+    {% set widget_container_block = block('ezdrawio_widget_container') %}
+
+    {{ block('form_row_fieldtype') }}
+{%- endblock -%}
+
+{% block ezdrawio_widget_container %}
+    <div{% with { attr: preview_attr } %}{{ block('attributes') }}{% endwith %}>
+        {{ block(preview_block_name) }}
+    </div>
+    <div{% with { attr: widget_wrapper_attr } %}{{ block('attributes') }}{% endwith %}>
+        {{ block('ezplatform_fieldtype_ezdrawio_widget') }}
+    </div>
+{% endblock %}
+
+{%- block ezplatform_fieldtype_ezdrawio_widget -%}
+    <div class="ez-data-source__btn-add">
+        <svg class="ez-icon">
+            <use xlink:href="/bundles/ezplatformadminui/img/ez-icons.svg#create"></use>
+        </svg>
+        <span class="ez-data-source__btn-label">
+            {{ 'content.field_type.ezdrawio.create'|trans|desc('Create diagram') }}
+        </span>
+    </div>
+
+    {{ form_widget(form.data, { attr: {'class': 'ez-data-source__input-data' }}) }}
+{%- endblock -%}
+
+{%- block ezdrawio_preview -%}
+    <div class="ez-field-edit-preview">
+        <div class="ez-field-edit-preview__visual">
+            <div class="ez-field-edit-preview__media-wrapper">
+                <div class="ez-field-edit-preview__media">
+                    <img src="{{ form.data.vars.value | default('://0') }}" />
+                </div>
+            </div>
+            <div class="ez-field-edit-preview__image-alt">
+                {{ form_row(form.alternativeText) }}
+            </div>
+        </div>
+        <div class="ez-field-edit-preview__actions">
+            <a class="ez-field-edit-preview__action--edit" href="://0" target="_blank">
+                <svg class="ez-icon">
+                    <use xlink:href="/bundles/ezplatformadminui/img/ez-icons.svg#edit"></use>
+                </svg>
+            </a>
+
+            <button class="ez-field-edit-preview__action--remove">
+                <svg class="ez-icon">
+                    <use xlink:href="/bundles/ezplatformadminui/img/ez-icons.svg#trash"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+{%- endblock -%}

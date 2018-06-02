@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="not.available">
+        <header>
+            <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+            <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+        </header>
+        <body>
+            <trans-unit id="015c8e9fc1faa5a2c602e0d7ed769fb7598e6eb9" resname="content.field_type.ezdrawio.alternative_text">
+                <source>Alternative text</source>
+                <target>Alternative text</target>
+                <note>key: content.field_type.ezdrawio.alternative_text</note>
+            </trans-unit>
+            <trans-unit id="4775c34038cbda0a8e8384e564da214c88a89d97" resname="content.field_type.ezdrawio.create">
+                <source>Create diagram</source>
+                <target>Create diagram</target>
+                <note>key: content.field_type.ezdrawio.create</note>
+            </trans-unit>
+            <trans-unit id="49f9f93ac15940e52013b11372a34c879891f74b" resname="content.field_type.ezdrawio.properties">
+                <source>Diagram properties</source>
+                <target>Diagram properties</target>
+                <note>key: content.field_type.ezdrawio.properties</note>
+            </trans-unit>
+            <trans-unit id="faab322e05346ec9293a39bca1a2fdeebe640f4a" resname="content.field_type.ezdrawio.dimensions">
+                <source>Dimensions</source>
+                <target>Dimensions</target>
+                <note>key: content.field_type.ezdrawio.dimensions</note>
+            </trans-unit>
+            <trans-unit id="2d1a0646754733bf2fea77e8a559c8f8b95147d9" resname="content.field_type.ezdrawio.dimensions.val">
+                <source>%width%x%height%px</source>
+                <target>%width%x%height%px</target>
+                <note>key: content.field_type.ezdrawio.dimensions.val</note>
+            </trans-unit>
+            <trans-unit id="5718888c2fd52d0c69c4dd259a142ad86ba0e31f" resname="content.field_type.ezdrawio.ratio">
+                <source>Ratio</source>
+                <target>Ratio</target>
+                <note>key: content.field_type.ezdrawio.ratio</note>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
