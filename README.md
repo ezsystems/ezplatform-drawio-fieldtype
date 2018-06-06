@@ -6,9 +6,13 @@
 
 ## Description
 
+Bundle providing support for diagrams editing in eZ Platform via draw.io. 
+
+## Demo 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/F9EyWCu6IU4/0.jpg)](https://www.youtube.com/watch?v=F9EyWCu6IU4)
+
 ## Documentation
 
 [Installation](docs/INSTALL.md)
-
-[Usage](docs/USAGE.md)
 
