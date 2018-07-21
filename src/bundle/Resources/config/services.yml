@@ -29,6 +29,11 @@ services:
         tags:
             - { name: ezpublish.fieldType.externalStorageHandler, alias: ezdrawio }
 
+    EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\SearchField:
+        public: true
+        tags:
+            - { name: ezpublish.fieldType.indexable, alias: ezdrawio }
+
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Form\FormMapper:
         public: true
         tags:
