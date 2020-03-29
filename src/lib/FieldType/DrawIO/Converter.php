@@ -10,6 +10,6 @@ namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
 use eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\ImageConverter as BaseConverter;
 
-class Converter extends BaseConverter
+final class Converter extends BaseConverter
 {
 }

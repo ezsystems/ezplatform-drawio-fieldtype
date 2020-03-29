@@ -8,15 +8,8 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformDrawIOFieldTypeBundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class EzPlatformDrawIOFieldTypeBundle extends Bundle
+final class EzPlatformDrawIOFieldTypeBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function build(ContainerBuilder $container)
-    {
-    }
 }

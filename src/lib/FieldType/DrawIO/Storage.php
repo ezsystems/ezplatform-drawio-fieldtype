@@ -10,6 +10,6 @@ namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
 use eZ\Publish\Core\FieldType\Image\ImageStorage as BaseStorage;
 
-class Storage extends BaseStorage
+final class Storage extends BaseStorage
 {
 }

@@ -10,6 +10,6 @@ namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
 use eZ\Publish\Core\FieldType\Image\Value as BaseValue;
 
-class Value extends BaseValue
+final class Value extends BaseValue
 {
 }

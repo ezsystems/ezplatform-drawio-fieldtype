@@ -1,4 +1,4 @@
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{#{% extends "EzPublishCoreBundle::content_fields.html.twig" %}#}
 
 {% trans_default_domain 'ezdrawio' %}
 
@@ -46,7 +46,7 @@
         <div class="ez-field-edit-preview__visual">
             <div class="ez-field-edit-preview__media-wrapper">
                 <div class="ez-field-edit-preview__media">
-                    <img src="{{ form.data.vars.value | default('://0') }}" />
+                    <img src="{{ form.data.vars.value | default('://0') }}" alt=""/>
                 </div>
             </div>
             <div class="ez-field-edit-preview__image-alt">

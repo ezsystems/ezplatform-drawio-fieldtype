@@ -10,7 +10,6 @@ namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
 use eZ\Publish\Core\FieldType\Image\SearchField as BaseSearchField;
 
-class SearchField extends BaseSearchField
+final class SearchField extends BaseSearchField
 {
-
 }

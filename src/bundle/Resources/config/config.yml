@@ -1,18 +1,14 @@
-assetic:
-    bundles:
-        - EzPlatformDrawIOFieldTypeBundle
-
 twig:
     form_themes:
-        - 'EzPlatformDrawIOFieldTypeBundle:adminui/field:ezdrawio_edit.html.twig'
+        - '@EzPlatformDrawIOFieldType/adminui/field/ezdrawio_edit.html.twig'
 
 ezpublish:
     system:
         default:
             field_templates:
-                - { template: 'EzPlatformDrawIOFieldTypeBundle::ezdrawio_view.html.twig', priority: 0 }
+                - { template: '@EzPlatformDrawIOFieldType/ezdrawio_view.html.twig', priority: 0 }
         admin_group:
             field_templates:
-                - { template: 'EzPlatformDrawIOFieldTypeBundle:adminui/field:ezdrawio_view.html.twig', priority: 10 }
+                - { template: '@EzPlatformDrawIOFieldType/adminui/field/ezdrawio_view.html.twig', priority: 10 }
             fielddefinition_settings_templates:
-                - { template: 'EzPlatformDrawIOFieldTypeBundle:adminui/field:ezdrawio_settings.html.twig', priority: 10 }
+                - { template: '@EzPlatformDrawIOFieldType/adminui/field/ezdrawio_settings.html.twig', priority: 10 }

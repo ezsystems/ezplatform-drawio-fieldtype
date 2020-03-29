@@ -15,12 +15,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 
-class EzPlatformDrawIOFieldTypeExtension extends Extension implements PrependExtensionInterface
+final class EzPlatformDrawIOFieldTypeExtension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
             $container,
@@ -30,10 +27,7 @@ class EzPlatformDrawIOFieldTypeExtension extends Extension implements PrependExt
         $loader->load('services.yml');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $config = Yaml::parseFile(
             __DIR__ . '/../Resources/config/config.yml'
