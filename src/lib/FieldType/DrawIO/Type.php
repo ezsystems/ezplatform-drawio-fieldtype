@@ -8,32 +8,24 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
-use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\Core\FieldType\Image\Type as BaseType;
-use eZ\Publish\SPI\FieldType\Value as SPIValue;
 
-class Type extends BaseType
+final class Type extends BaseType
 {
-    const FIELD_TYPE_IDENTIFIER = 'ezdrawio';
+    public const FIELD_TYPE_IDENTIFIER = 'ezdrawio';
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFieldTypeIdentifier()
+    public function getFieldTypeIdentifier(): string
     {
         return self::FIELD_TYPE_IDENTIFIER;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function createValueFromInput($inputValue)
     {
-        if (is_string($inputValue)) {
+        if (\is_string($inputValue)) {
             $inputValue = Value::fromString($inputValue);
         }
 
-        if (is_array($inputValue)) {
+        if (\is_array($inputValue)) {
             if (isset($inputValue['inputUri']) && file_exists($inputValue['inputUri'])) {
                 $inputValue['fileSize'] = filesize($inputValue['inputUri']);
                 if (!isset($inputValue['fileName'])) {
@@ -47,10 +39,7 @@ class Type extends BaseType
         return $inputValue;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function fromHash($hash)
+    public function fromHash($hash): Value
     {
         if ($hash === null) {
             return $this->getEmptyValue();
@@ -59,19 +48,8 @@ class Type extends BaseType
         return new Value($hash);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getEmptyValue()
+    public function getEmptyValue(): Value
     {
         return new Value();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getFieldName(SPIValue $value, FieldDefinition $fieldDefinition, $languageCode)
-    {
-        return $value->alternativeText;
     }
 }
