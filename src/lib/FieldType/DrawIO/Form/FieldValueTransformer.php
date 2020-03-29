@@ -51,12 +51,16 @@ class FieldValueTransformer implements DataTransformerInterface
         $hash = $this->fieldType->toHash($value);
 
         try {
-            $binary = $this->ioService->loadBinaryFileByUri($value->uri);
+            $dataUri = null;
 
-            $dataUri = 'data:';
-            $dataUri .= $this->ioService->getMimeType($binary->id);
-            $dataUri .= ';base64,';
-            $dataUri .= base64_encode($this->ioService->getFileContents($binary));
+            if (!empty($value->uri)) {
+                $binary = $this->ioService->loadBinaryFileByUri($value->uri);
+
+                $dataUri = 'data:';
+                $dataUri .= $this->ioService->getMimeType($binary->id);
+                $dataUri .= ';base64,';
+                $dataUri .= base64_encode($this->ioService->getFileContents($binary));
+            }
 
             $hash['data'] = $dataUri;
         } catch (InvalidArgumentValue | NotFoundException $e) {

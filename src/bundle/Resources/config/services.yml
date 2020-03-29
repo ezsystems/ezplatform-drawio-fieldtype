@@ -9,7 +9,7 @@ services:
         arguments:
             $validators: ['@ezpublish.fieldType.validator.black_list', '@ezpublish.fieldType.validator.image']
         tags:
-            - { name: ezpublish.fieldType, alias: ezdrawio }
+            - { name: ezplatform.field_type, alias: ezdrawio }
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Converter:
         public: true
@@ -17,7 +17,7 @@ services:
             - "@ezpublish.fieldType.ezimage.io_service"
             - "@ezpublish.core.io.image_fieldtype.legacy_url_redecorator"
         tags:
-            - { name: ezpublish.storageEngine.legacy.converter, alias: ezdrawio }
+            - { name: ezplatform.field_type.legacy_storage.converter, alias: ezdrawio }
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Storage:
         public: true
@@ -29,18 +29,18 @@ services:
             - "@ezpublish.utils.deprecation_warner"
             - "@?ezpublish.image_alias.imagine.alias_cleaner"
         tags:
-            - { name: ezpublish.fieldType.externalStorageHandler, alias: ezdrawio }
+            - { name: ezplatform.field_type.external_storage_handler, alias: ezdrawio }
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\SearchField:
         public: true
         tags:
-            - { name: ezpublish.fieldType.indexable, alias: ezdrawio }
+            - { name: ezplatform.field_type.indexable, alias: ezdrawio }
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Form\FormMapper:
         public: true
         tags:
-            - { name: ez.fieldFormMapper.definition, fieldType: ezdrawio }
-            - { name: ez.fieldFormMapper.value, fieldType: ezdrawio }
+            - { name: ezplatform.field_type.form_mapper.definition, fieldType: ezdrawio }
+            - { name: ezplatform.field_type.form_mapper.value, fieldType: ezdrawio }
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Form\FormType:
         public: true
@@ -48,19 +48,3 @@ services:
             $ioService: "@ezpublish.fieldType.ezimage.io_service"
         tags:
             - { name: form.type }
-
-    ezdrawio.components.styles:
-        class: EzSystems\EzPlatformAdminUi\Component\LinkComponent
-        arguments:
-            $href: '/bundles/ezplatformdrawiofieldtype/css/style.css'
-        tags:
-            - { name: ezplatform.admin_ui.component, group: 'stylesheet-head' }
-
-    ezdrawio.components.edit_js:
-        class: EzSystems\EzPlatformAdminUi\Component\TwigComponent
-        arguments:
-            $template: 'EzPlatformDrawIOFieldTypeBundle:adminui/component:ezdrawio_edit_js.html.twig'
-            $parameters: []
-        tags:
-            - { name: ezplatform.admin_ui.component, group: 'content-edit-form-after' }
-            - { name: ezplatform.admin_ui.component, group: 'content-create-form-after' }

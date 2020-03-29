@@ -1,16 +1,16 @@
-{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+{% extends "@ezdesign/ui/field_type/preview/content_fields.html.twig" %}
 
 {% trans_default_domain 'ezdrawio' %}
 
 {% block ezdrawio_field %}
-{% spaceless %}
-    {% if not ez_is_field_empty( content, field ) %}
+{% apply spaceless %}
+    {% if not ez_field_is_empty( content, field ) %}
         {% set imageAlias = ez_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
         {% set src = imageAlias ? asset( imageAlias.uri ) : "//:0" %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ez-field-preview ez-field-preview--ezdrawio')|trim}) %}
         <div {{ block( 'field_attributes' ) }}>
             <div class="ez-image__wrapper">
-                <img src="{{ src }}">
+                <img src="{{ src }}" alt=""/>
             </div>
             <table>
                 <thead>
@@ -40,5 +40,5 @@
             </table>
         </div>
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
