@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Form;
 
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformAdminUi\Form\Data\FieldDefinitionData;
+use EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 class FormMapper implements FieldDefinitionFormMapperInterface, FieldValueFormMapperInterface
@@ -19,9 +19,8 @@ class FormMapper implements FieldDefinitionFormMapperInterface, FieldValueFormMa
     /**
      * {@inheritdoc}
      */
-    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
+    public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
     {
-        return;
     }
 
     /**
