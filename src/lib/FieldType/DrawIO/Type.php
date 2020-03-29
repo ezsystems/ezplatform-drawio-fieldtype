@@ -10,11 +10,9 @@ namespace EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO;
 
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\Core\FieldType\Image\Type as BaseType;
-use eZ\Publish\SPI\FieldType\Nameable;
 use eZ\Publish\SPI\FieldType\Value as SPIValue;
-use RuntimeException;
 
-class Type extends BaseType implements Nameable
+class Type extends BaseType
 {
     const FIELD_TYPE_IDENTIFIER = 'ezdrawio';
 
@@ -75,13 +73,5 @@ class Type extends BaseType implements Nameable
     public function getFieldName(SPIValue $value, FieldDefinition $fieldDefinition, $languageCode)
     {
         return $value->alternativeText;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName(SPIValue $value)
-    {
-        throw new RuntimeException('Name generation provided via NameableField set via "ezpublish.fieldType.nameable" service tag');
     }
 }
