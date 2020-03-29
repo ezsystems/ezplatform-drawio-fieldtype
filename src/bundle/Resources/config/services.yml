@@ -6,6 +6,8 @@ services:
 
     EzSystems\EzPlatformDrawIOFieldType\FieldType\DrawIO\Type:
         public: true
+        arguments:
+            $validators: ['@ezpublish.fieldType.validator.black_list', '@ezpublish.fieldType.validator.image']
         tags:
             - { name: ezpublish.fieldType, alias: ezdrawio }
 
