@@ -5,16 +5,13 @@
 1. Enable the bundle
  
 ```php
-// app/AppKernel.php
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new EzSystems\EzPlatformDrawIOFieldTypeBundle\EzPlatformDrawIOFieldTypeBundle(),
-        // ...
-    );
-}
-``` 
+// config/bundles.php
+return [
+    // ...
+    EzSystems\EzPlatformDrawIOFieldTypeBundle\EzPlatformDrawIOFieldTypeBundle::class => ['all' => true],
+    // ...
+];
+```
 
 2) Get the bundle using composer
 
